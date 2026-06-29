@@ -30,3 +30,45 @@ namespace Exception_Handling
             }
     }
 }
+Task 2 :
+namespace Exception_Handling
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> letters= new List<string>();
+          try
+            {
+                string text = Console.ReadLine();
+                checkVowels(text);
+                Console.WriteLine("Success! The string contains vowels.");
+            }
+            catch
+            {
+                Console.WriteLine("Catch problem");
+            }
+            static void checkVowels(string text)
+            {
+                string lowerText=text.ToLower();
+
+                string vowels = "aeiou";
+
+                bool hasvowel = false;
+                foreach(char c in lowerText)
+                {
+                    if(vowels.Contains(c))
+                    {
+                        hasvowel=true;
+                        break;
+                    }
+                }
+                if(!hasvowel)
+                {
+                    throw new Exception("Not Exist");
+                }
+            }
+        }
+    }
+}
+
